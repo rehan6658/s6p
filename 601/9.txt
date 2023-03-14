@@ -1,0 +1,9 @@
+AIM: Understanding, Reading and Analyzing Routing Table of a network.
+1. Drag 3 PC(PC-PT),2 Switches(2950-24), 2 generic routers(Router-PT) and 1 server(Server-PT).
+2. Make connection between the PCs, routers, servers and switches using copper straight
+through wire as shown in the figure below.
+
+PC 0 192.168.1.1 255.255.255.0 PC2 192.168.3.1 255.255.255.0
+
+Go to CLI tab of the main router i.e. the first router and type command, exit and
+press enter (do it 2 times). Type the command show ip route and press enter

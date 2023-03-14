@@ -1,0 +1,31 @@
+#AIM: Practical of Time-series forecasting.
+
+#THEORY:
+Time-series analysis consists of set of methods used to analyze various data facts or statistics from
+various characteristics of data. It is used for continuous data (e.g.: economic growth of an organization;
+share prices; temperature).
+Time-series components:
+• Trend: It is considered behavior of a particular amount of time. It can be categorized as
+increasing, decreasing, or constant trend. (e.g.: clothes)
+• Seasonality: It is a pattern which repeats at the constant frequency. (e.g.: the demand for the
+mangoes will be in summer season only)
+• Cycle: These are type of seasonality pattern nut it doesn’t repeat at regular frequency. It cn be
+generally considered as task completion time. (e.g. SDLC)
+
+#CODE:
+> data("AirPassengers") #checks if dataset “AirPassengers” is available
+> class(AirPassengers) #checks type of dataset(here it is ts=timeseries)
+> start(AirPassengers) #returns start of dataset
+> end(AirPassengers) #returns end of dataset
+> summary(AirPassengers) #to know min, max, median, 1st & 3rd quartiles
+
+> frequency(AirPassengers)
+
+
+> plot(AirPassengers)
+
+> abline(reg=lm(AirPassengers~time(AirPassengers))) #for best-fit-line
+
+> cycle(AirPassengers)
+
+> boxplot(AirPassengers~cycle(AirPassengers))

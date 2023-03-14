@@ -1,0 +1,128 @@
+Aim: Understanding TOSSIM for Mote-mote radio communication and for Mote-PC serial
+communication.
+1) Mote-mote radio communication.
+TinyOS provides a number of interfaces to abstract the underlying communications
+services and a number of components that provide (implement) these interfaces.
+All of these interfaces and components use a common message buffer abstraction, called
+message_t, which is implemented as a nesC structure (similar to a C structure).
+The message_t abstraction replaces the TinyOS 1.x TOS_Msg abstraction. Unlike TinyOS 1.x,
+the members of message_t are opaque, and therefore not accessed directly.
+Rather, message_t is an abstract data type, whose members are read and written using
+accessor and mutator functions &lt;ref name=&quot;fn1&quot;&gt;TEP 111: message_t&lt;/ref&gt;.
+Basic Communications Interfaces:
+There are a number of interfaces and components that use message_t as the underlying
+data structure.Let&#39;s take a look at some of the interfaces that are in the tos/interfaces
+directory to familiarize ourselves with the general functionality of the communications
+system:
+Packet - Provides the basic accessors for the message_t abstract data type.
+This interface provides commands for clearing a message&#39;s contents, getting its payload
+length, and getting a pointer to its payload area.
+Send - Provides the basic address-free message sending interface.
+This interface provides commands for sending a message and canceling a pending message
+send.
+The interface provides an event to indicate whether a message was sent successfully or not.
+It also provides convenience functions for getting the message&#39;s maximum payload as well
+as a pointer to a message&#39;s payload area.
+Receive - Provides the basic message reception interface.
+This interface provides an event for receiving messages.
+It also provides, for convenience, commands for getting a message&#39;s payload length and
+getting a pointer to a message&#39;s payload area.
+PacketAcknowledgements - Provides a mechanism for requesting acknowledgements on a
+per-packet basis.
+RadioTimeStamping - Provides time stamping information for radio transmission and
+reception.
+Sending a Message over the Radio:
+
+We will now create a simple application that increments a counter, displays the counter&#39;s
+three least significant bits on the three LEDs, and sends a message with the counter value
+over the radio. Our implementation will use a single timer and a counter, in a way similar to
+the BlinkSingle.
+Now that we have defined a message type for our application, BlinkToRadioMsg, we will
+next see how to send the message over the radio. Before beginning, let&#39;s review the
+purpose of the application.
+We want a timer-driven system in which every firing of the timer results in (i) incrementing
+a counter,
+(ii) displaying the three lowest bits of the counter on the LEDs,
+(iii) transmitting the node&#39;s id and counter value over the radio.
+To implement this program, we follow a number of simple steps, as described in the next
+paragraph.
+First, we need to identify the interfaces (and components) that provide access to the radio
+and allow us to manipulate the message_t type.
+Second, we must update the module block in the BlinkToRadioC.nc by adding uses
+statements for the interfaces we need.
+Third, we need to declare new variables and add any initialization and start/stop code that
+is needed by the interfaces and components.
+Fourth, we must add any calls to the component interfaces we need for our application.
+Fifth, we need to implement any events specified in the interfaces we plan on using.
+Sixth, the implementation block of the application configuration file, BlinkToRadioApp.c,
+must be updated by adding a components statement for each component we use that
+provides one of the interfaces we chose earlier. Finally, we need to wire the interfaces used
+by the application to the components which provide those interfaces.
+2) Mote-PC serial communication
+Receiving a Message over the Radio Now that we have an application that is transmitting
+messages, we can add some code to receive and process the messages.
+Let&#39;s write code that, upon receiving a message, sets the LEDs to the three least significant
+bits of the counter in the message.
+To make this application interesting, we will want to remove the line call Leds.set(counter);
+from the Timer0.fired event handler.
+Otherwise, both the timer events and packet receptions will update the LEDs and the
+resulting effect will be bizarre.
+If two motes are programmed with our modified application, then each will display the
+other mote&#39;s counter value.
+
+If the motes go out of radio range, then the LEDs will stop changing.
+You can even investigate link asymmetry by trying to get one mote&#39;s LEDs to keep blinking
+while the other mote&#39;s LEDs stop blinking. This would indicate that the link from the non-
+blinking mote to blinking mote was available but that the reverse channel was no longer
+available.
+1:Identify the interfaces (and components) that provide access to the radio and allow us
+to manipulate the message_t type.
+We will use the Receive interface to receive packets.
+2: Update the module block in the BlinkToRadioC.nc by adding uses statements for the
+interfaces we need:
+moduleBlinkToRadioC
+3: Declare any new variables and add any needed initialization code.
+We will not require any new variables to receive and process messages from the radio.
+4: Add any program logic and calls to the used interfaces we need for our application.
+Message reception is an event-driven process so we do not need to call any commands on
+the Receive.
+5: Implemement any (non-initialization) events specified in the interfaces we plan on
+using.
+We need to implement the Receive.receive event handler:
+The receive event handler performs some simple operations. First, we need to ensure that
+the length of the message is what is expected. Then, the message payload is cast to a
+structure pointer of type BlinkToRadioMsg* and assigned to a local variable. Then, the
+counter value in the message is used to set the states of the three LEDs.Note that we can
+safely manipulate the counter variable outside of an atomic section. The reason is that
+receive event executes in task context rather than interrupt context (events that have the
+async keyword can execute in interrupt context). Since the TinyOS execution model allows
+only one task to execute at a time, if all accesses to a variable occur in task context, then no
+race conditions will occur for that variable. Since all accesses to counter occur in task
+context, no critical sections are needed when accessing it.
+6: Update the implementation block of the application configuration file by adding a
+components statement for each component used that provides one of the interfaces
+chosen earlier.
+The following lines can be added just below the existing components declarations in the
+implementation block of BlinkToRadioAppC.nc:
+implementation
+
+This statement means that a new instance of AMReceiverCwill be created. AMReceiver is a
+generic, parameterized component.
+The new keyword indicates that a new instance of AMReceiverCwill be created. The
+AM_BLINKTORADIO parameter indicates the AM type of the AMReceiverC and is chosen to
+be the same as that used for the AMSenderC used earlier, which ensures that the same AM
+type is being used for both transmissions and receptions. AM_BLINKTORADIO is defined in
+the BlinkToRadio.h header file.
+7: Wire the the interfaces used by the application to the components which provide those
+interfaces.
+Update the wiring by insert the following line just before the closing brace of the
+implementation block in BlinkToRadioAppC:
+implementation
+8: Testing your application is easy.
+Get two motes. They can be mica2, micaz, telosa, telosb, or tmote. For this exercise, let&#39;s
+assume that the motes are telosb (if not, skip past the motelist part and program the mote
+using whatever the appropriate programmer parameters are for your hardware). Assuming
+you are using a telosb, first open a Cygwin or Linux shell and cd to the
+apps/tutorials/BlinkToRadio directory. Then, insert the first telosb mote into an available
+USB port on the PC and type motelistthe at the Cygwin or Linux prompt ($). You should see
+exactly one mote listed.

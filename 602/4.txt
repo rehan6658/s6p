@@ -1,0 +1,56 @@
+Aim: Study and implementation of identity management
+OwnCloud is open source file sync and share software for everyone from individuals operating the free
+ownCloud Server edition, to large enterprises and service providers operating the ownCloud Enterprise
+Subscription. ownCloud provides a safe, secure, and compliant file synchronization and sharing solution
+on servers that you control. You can share one or more files and folders on your computer, and
+synchronize them with your ownCloud server
+Identity Management
+Procedure:
+1. Install WAMP Server 2.5
+2. Copy the owncloud folder in C:\wamp\www
+3. Run WAMP Server
+4. Open Browser: https://localhost/owncloud
+5. For the first time it ask to create admin user
+─ Enter username as admin and password as admin click on Finish Setup Button
+6. After finishing setup dashboard will appear
+7. Go to Admin Options and click on users
+8. Create a group TYCS
+9. Create Different User and Add them to TYCS Group
+10. And then login with user accounts
+11. Upload on file and give access to only TYCS Group
+12. Step 5: Five Share permissions are :
+─ Can share; allows the users you share with to re-share.
+─ Can edit; allows the users you share with to edit your shared files, and to collaborate
+using the Documents app.
+─ Create; allows the users you share with to create new files and add them to the share.
+─ Change; allows uploading a new version of a shared file and replacing it.
+─ Delete; allows the users you share with to delete shared files.
+
+Conclusion:
+We have studied how to use ownCloud for ensuring identity management of the users. We can
+create multiple groups and provide privileges to view or modify data as per defined permissions.
+It also enables simplified look and feel to be used by anyone.
+
+USCS602 Identity Management Prof.Mudassar Ansari
+Screen shots:
+1. Install wamp server 2.5 and launch it (start)
+
+Click on Wamp Server Icon (Quick Launch) (Icon Should be in GREEN Color)
+Open localhost
+
+In project section click on owncloud
+
+USCS602 Identity Management Prof.Mudassar Ansari
+Owncloud will start and ask to create admin user
+
+Enter the username and password then click on Finish setup
+
+USCS602 Identity Management Prof.Mudassar Ansari
+After finishing setup
+
+Dashboard will appear
+
+USCS602 Identity Management Prof.Mudassar Ansari
+Create Group and Create Users add them in Group
+
+Perform steps 10,11 & 12 mention in procedure.

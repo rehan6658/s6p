@@ -1,0 +1,216 @@
+#AIM: Perform the following operations in MongoDB.
+
+#THEORY:
+What is MongoDB?
+MongoDB is a cross-platform, document-oriented database that provides, high performance, high
+availability, and easy scalability. MongoDB works on concept of collection and document.
+Database
+Database is a physical container for collections. Each database gets its own set of files on the file system.
+A single MongoDB server typically has multiple databases.
+Collection
+Collection is a group of MongoDB documents. It is the equivalent of an RDBMS table. A collection exists
+within a single database. Collections do not enforce a schema. Documents within a collection can have
+different fields. Typically, all documents in a collection are of similar or related purpose.
+Document
+A document is a set of key-value pairs. Documents have dynamic schema. Dynamic schema means that
+documents in the same collection do not need to have the same set of fields or structure, and common
+fields in a collection's documents may hold different types of data.
+The following table shows the relationship of RDBMS terminology with MongoDB.
+RDBMS MongoDB
+Database Database
+Table Collection
+Tuple/Row Document
+column Field
+Table Join Embedded Documents
+Primary Key Primary Key (Default key _id provided by mongodb itself)
+
+Database Server and Client
+
+Mysqld/Oracle mongod
+mysql/sqlplus mongo
+
+Any relational database has a typical schema design that shows number of tables and the relationship
+between these tables. While in MongoDB, there is no concept of relationship.
+Advantages of MongoDB over RDBMS
+• Schema less − MongoDB is a document database in which one collection holds different
+documents. Number of fields, content and size of the document can differ from one document
+to another.
+• Structure of a single object is clear.
+• No complex joins.
+• Deep query-ability. MongoDB supports dynamic queries on documents using a document-based
+query language that's nearly as powerful as SQL.
+• Tuning.
+• Ease of scale-out − MongoDB is easy to scale.
+• Conversion/mapping of application objects to database objects not needed.
+• Uses internal memory for storing the (windowed) working set, enabling faster access of data.
+Why use MongoDB?
+• Document Oriented Storage − Data is stored in the form of JSON style documents.
+• Index on any attribute
+• Replication and high availability
+• Auto-sharding
+• Rich queries
+• Fast in-place updates
+• Professional support by MongoDB
+Where to use MongoDB?
+• Big Data
+• Content Management and Delivery
+• Mobile and Social Infrastructure
+• User Data Management
+• Data Hub
+
+#IMPLEMENTATION:
+• Navigate to “bin” folder of MongoDB and open mongo.exe .
+
+#OPERATIONS(PART-A):
+1) Create database “inventory”, & create collection “products” & add 5 product documents in it.
+For collection “products”, details like (productno, description, company, price) need to be
+maintained.
+2) List products of “Samsung”.
+3) List products in ascending/descending order of their price.
+4) List products whose price is more than 15000.
+5) Update price of product “p1” to 10000.
+#STEPS(PART-A):
+1) Create database “inventory”, & create collection “product” & add 5 product documents in it.
+For collection “product”, details like (productno, description, company, price) need to be
+maintained.
+• Create database named “inventory”:
+> use inventory
+
+• Insert some values in collection named “product”:
+>
+db.product.insert({"productno":"p1","description":"earphone","company":"oneplus","price":
+8000});
+>
+db.product.insert({"productno":"p2","description":"desktop","company":"apple","price":120
+000});
+>
+db.product.insert({"productno":"p3","description":"smartwatch","company":"samsung","pric
+e":17000});
+>
+db.product.insert({"productno":"p4","description":"speaker","company":"jbl","price":13000}
+);
+>
+db.product.insert({"productno":"p5","description":"smartphone","company":"samsung","pri
+ce":14000});
+
+2) List products of “Samsung”.
+• To show all inserted data:
+> db.product.find();
+
+• To show all data in proper “PRETTY” form:
+> db.product.find().pretty();
+
+• To show specific data by “productno” & “company”:
+> db.product.find({productno:"p3"});
+
+> db.product.find({company:"samsung"});
+
+3) List products in ascending/descending order of their price.
+• To show column’s data in ascending order:
+> db.product.find().sort({"price":1}).pretty();
+
+• To show column’s data in descending order:
+> db.product.find().sort({"price":-1}).pretty();
+
+4) List products whose price is more than 15000.
+• Product details greater than 15000:
+> db.product.find({"price":{$gt:15000}}).pretty();
+
+5) Update price of product “p1” to 10000.
+• Update price of product “p1”:
+> db.product.update({"productno": "p1"},{$set:{"price":10000}});
+
+• Check the updated price:
+> db.product.find({"productno":"p1"}).pretty();
+
+6) Drop database.
+> db.dropDatabase()
+
+#OPERATIONS(PART-B):
+1) Create database “exam” & create collection “result” to store student marks. For collection
+“result”, details like (seatno, name, class, marks, grade) need to be maintained. Grades are (F,
+D, C, B, A, O)
+2) List all student details.
+3) List students who have scored more than 500 marks.
+4) List students of tycs in ascending order of marks.
+5) Update marks of seatno: 202 to 750.
+#STEPS(PART-B):
+1) Create database “exam” & create collection “result” to store student marks. For collection
+“result”, details like (seatno, name, class, marks, grade) need to be maintained. Grades are (F,
+D, C, B, A, O)
+• Create database named “exam”:
+> use exam
+
+• Insert some values in collection named “result”:
+> db.result.insert({"seatno":201, "name":"jim", "class":"tycs", "marks":540, "grade":"C"});
+> db.result.insert({"seatno":202, "name":"jam", "class":"tycs", "marks":670, "grade":"B"});
+> db.result.insert({"seatno":203, "name":"tim", "class":"tycs", "marks":780, "grade":"B"});
+> db.result.insert({"seatno":204, "name":"tam", "class":"tycs", "marks":202, "grade":"F"});
+> db.result.insert({"seatno":205, "name":"sim", "class":"tycs", "marks":910, "grade":"O"});
+
+2) List all student details:
+> db.result.find().pretty();
+
+3) List students who have scored more than 500 marks:
+> db.result.find({marks:{$gt:500}}).pretty();
+
+4) List students of tycs in ascending order of marks:
+> db.result.find().sort({"marks":1}).pretty();
+
+5) Update marks of seatno: 202 to 750.
+• Update marks of seatno=202:
+> db.result.update({"seatno":202}, {$set:{"marks":750}});
+
+• Check the updated marks:
+> db.result.find({"seatno":202}).pretty();
+
+#OPERATIONS(PART-C):
+1) Create database “Library”. Create collection of “books” & add 5 documents in it. For “books”
+collection details like (isbnno, title, publisher, author, category, price) need to be maintained.
+2) List the Title, ISBN, Author for “books”.
+3) List the books which price is more than 1500.
+4) Remove the book (ISBN 10201) from collection.
+5) List the ‘Pearsons’ publishers’ books.
+6) List first 3 records.
+
+#STEPS(PART-C):
+1) Create database “Library”. Create collection of “books” & add 5 documents in it. For “books”
+collection details like (isbnno, title, publisher, author, category, price) need to be maintained.
+• Create database named “Library”:
+> use Library
+
+• Insert some values in collection named “books”:
+>
+db.books.insert({"isbnno":10201,"title":"Junglee","publisher":"Bookies","author":"Arthur","c
+ategory":"Nature","price":650})
+>
+db.books.insert({"isbnno":10202,"title":"Flyers","publisher":"Bookies","author":"Ada","categ
+ory":"Birds","price":600})
+>
+db.books.insert({"isbnno":10203,"title":"Jewels","publisher":"Pearsons","author":"Kiwie","ca
+tegory":"Women","price":1550})
+>
+db.books.insert({"isbnno":10204,"title":"Flowers","publisher":"Pearsons","author":"PA","cat
+egory":"Nature","price":6650})
+>
+db.books.insert({"isbnno":10205,"title":"Talkers","publisher":"Pagers","author":"lizzie","cate
+gory":"Gossip","price":1650})
+
+2) List the Title, ISBN, Author for “books”.
+• > db.books.find({},{"isbnno":1,"title":1,"author":1}).pretty();
+
+3) List the books which price is more than 1500.
+• > db.books.find({price:{$gt:1500}}).pretty();
+
+4) Remove the book (ISBN 10201) from collection.
+• Remove the book:
+> db.books.remove({"isbnno": 10201}, 1);
+
+• Check if it has been removed:
+> db.books.find({},{"isbnno":1}).pretty();
+
+5) List the ‘Pearsons’ publishers’ books.
+• > db.books.find({publisher:"Pearsons"}).pretty();
+
+6) List first 3 records.
+• > db.books.find().limit(3);

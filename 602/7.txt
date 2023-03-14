@@ -1,0 +1,17 @@
+Aim: Study Cloud Security management
+Cloud computing security is the set of control-based technologies and policies designed to adhere to
+regulatory compliance rules and protect information, data applications and infrastructure associated
+with cloud computing use. Because of the cloud's very nature as a shared resource, identity
+management, privacy and access control are of particular concern. With more organizations using cloud
+computing and associated cloud providers for data operations, proper security in these and other
+potentially vulnerable areas have become a priority for organizations contracting with a cloud
+computing provider.
+Security Management
+Procedure:
+Write all the steps of account creation, admin rights and user’s creation finally generate
+credentials.csv and security management using MFA (By link AWS account with Google Authenticator on
+Mobile device)
+Conclusion:
+We have studied how to secure the cloud and its data. Amazon EWS provides the best security
+with its extended facilities and services like MFA device. It also gives you the ability to add your
+own permissions and policies for securing data more encrypted

@@ -1,0 +1,102 @@
+#AIM: Case study on "Amazon EC2/Microsoft Azure/Google Cloud Platform".
+
+#THEORY:
+--------------------------
+1) Cloud Service Providers
+
+- Amazon Elastic Compute Cloud (EC2) forms a central part of Amazon.com's cloud-
+computing platform, Amazon Web Services (AWS), by allowing users to rent virtual
+
+computers on which to run their own computer applications. EC2 encourages scalable
+deployment of applications by providing a web service through which a user can boot an
+Amazon Machine Image (AMI) to configure a virtual machine, which Amazon calls an
+"instance", containing any software desired. A user can create, launch, and terminate
+server-instances as needed, paying by the second for active servers – hence the term
+"elastic". EC2 provides users with control over the geographical location of instances that
+allows for latency optimization and high levels of redundancy.
+
+- Microsoft Azure (formerly Windows Azure) is a cloud computing service created by
+Microsoft for building, testing, deploying, and managing applications and services through
+Microsoft-managed data centers. It provides software as a service (SaaS), platform as a
+service (PaaS) and infrastructure as a service (IaaS) and supports many different
+
+programming languages, tools and frameworks, including both Microsoft-specific and third-
+party software and systems.
+
+Azure was announced in October 2008, started with codename "Project Red Dog", and
+released on February 1, 2010, as "Windows Azure" before being renamed "Microsoft Azure"
+on March 25, 2014.
+
+- Google Cloud Platform (GCP), offered by Google, is a suite of cloud computing services
+that runs on the same infrastructure that Google uses internally for its end-user products,
+such as Google Search and YouTube. Alongside a set of management tools, it provides a
+series of modular cloud services including computing, data storage, data analytics and
+machine learning. Registration requires a credit card or bank account details.
+Google Cloud Platform provides infrastructure as a service, platform as a service, and
+serverless computing environments.
+In April 2008, Google announced App Engine, a platform for developing and hosting web
+applications in Google-managed data centers, which was the first cloud computing service
+
+from the company. The service became generally available in November 2011. Since the
+announcement of App Engine, Google added multiple cloud services to the platform.
+Google Cloud Platform is a part [4] of Google Cloud, which includes the Google Cloud
+Platform public cloud infrastructure, as well as G Suite, enterprise versions of Android and
+Chrome OS, and application programming interfaces (APIs) for machine learning and
+enterprise mapping services.
+--------------------------
+2) How old are these platforms?
+-(Amazon EC2)Launched: March 2006; 13 years ago
+
+-(Microsoft Azure)Launched: 1 February 2010; 10 years old
+
+-(Google Cloud Platform)Launched: April 7, 2008; 11 years old
+--------------------------
+3) Which one to choose and why?
+- (Amazon)With a vast tool set that continues to grow exponentially, Amazon’s capabilities
+are unmatched. Yet its cost structure can be confusing, and its singular focus on public cloud
+rather than hybrid cloud or private cloud means that interoperating with your data center
+isn't AWS's top priority.
+• Easy to use
+AWS is designed to allow application providers, ISVs, and vendors to quickly and securely
+host your applications – whether an existing application or a new SaaS-based application.
+You can use the AWS Management Console or well-documented web services APIs to access
+AWS’s application hosting platform.
+• Flexible
+AWS enables you to select the operating system, programming language, web application
+platform, database, and other services you need. With AWS, you receive a virtual
+environment that lets you load the software and services your application requires. This
+eases the migration process for existing applications while preserving options for building
+new solutions.
+• Cost-Effective
+
+You pay only for the compute power, storage, and other resources you use, with no long-
+term contracts or up-front commitments. For more information on comparing the costs of
+
+other hosting alternatives with AWS, see the AWS Economics Center.
+
+• Reliable
+With AWS, you take advantage of a scalable, reliable, and secure global computing
+infrastructure, the virtual backbone of Amazon.com’s multi-billion dollar online business
+that has been honed for over a decade.
+• Scalable and high-performance
+Using AWS tools, Auto Scaling, and Elastic Load Balancing, your application can scale up or
+down based on demand. Backed by Amazon’s massive infrastructure, you have access to
+compute and storage resources when you need them.
+• Secure
+AWS utilizes an end-to-end approach to secure and harden our infrastructure, including
+physical, operational, and software measures. For more information, see the AWS Security
+Center.
+--------------------------
+4) Pricing?
+-Always free(though there are various categories)
+--------------------------
+5) Features?
+-Various configurations of CPU, memory, storage, and networking capacity for your
+instances, known as instance types. Secure login information for your instances using key
+pairs (AWS stores the public key, and you store the private key in a secure place)
+--------------------------
+6) Services?
+-Amazon EC2 is integrated with most AWS services such as Amazon Simple Storage Service
+(Amazon S3), Amazon Relational Database Service (Amazon RDS), and Amazon Virtual
+Private Cloud (Amazon VPC) to provide a complete, secure solution for computing, query
+processing, and cloud storage across a wide range of applications.

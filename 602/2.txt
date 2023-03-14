@@ -1,0 +1,15 @@
+#AIM: Study and Implementation of SaaS(Storage as a Service).
+
+#REQUIREMENTS:
+• Stable internet connection and a Google account.
+#STEPS:
+
+-----STEP1 (Logging in Gmail) ----
+
+---- STEP2 (Accessing Google DRIVE) ----
+
+---- STEP3 (Creating a Google Form) ----
+
+---- STEP4 (Sending Form to users) ----
+
+---- STEP5 (User filling/submitting form) ----

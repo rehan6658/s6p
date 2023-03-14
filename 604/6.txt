@@ -1,0 +1,104 @@
+#AIM: WAP to compute similarity between two text documents.
+
+#THEORY:
+
+The similarity between two documents is computed by any one of the several similarity measures based
+on the two corresponding feature vectors, e.g. cosine, dice, and Jaccard measure. The common
+framework for the document clustering model starts with the representation of any document as a
+feature vector of the terms (words) that appear in the document collection. Let D = (D1,D2, . . .,Dn)
+denote the collection of documents, where ‘n’ is the number of documents in the collection. Let T = (T1,
+T2, . . .Tm) represent all the terms that occurred in the document collection ‘D’. Here ‘m’ is the number
+of unique terms in the document collection.
+
+The representation of a set of documents as vectors in a common vector space is known as a Vector
+Space Model (VSM). A collection of ‘N’ documents can thus be viewed as a collection of vectors, leading
+to the natural view of a collection as a term-document matrix; this is an M× N matrix whose rows
+represent the M terms (dimensions) of the N columns, each of which corresponds to a document. The
+standard way of quantifying the similarity between two objects ‘ti’ and ‘tj’ is to compute the similarity of
+their vector representations, using the IDF in expressions
+Stop Words
+Stop words are removed from the document as a preprocessing step. The removal of stop words has
+also the advantage of reducing the size of the document by one third. While setting the lower cutoff
+level, it is ensured that rare documents are not to be taken out of document processing. Stop words are
+frequently occurring, insignificant words that appear in a database record, article or web page.
+Stop words are application dependent. They apply to the particular database or application (e.g.:
+searching, summarization, question answering etc). It is commonly assumed that words, which are not
+members of the noun verb-adjective classes, should be in the stop words list. Single characters, common
+two-character and three-character words, frequently repeated words are typically included in the stop
+word list to maximize the performance of the summarization process.
+Stemming
+After the removal of the stop words, the next step is stemming. Truncation, also called stemming, is a
+technique that allows one to search for various word endings and spellings simultaneously. Stemming
+ensures that all words having the same stem are counted together. That means the terms eat, eating,
+eatable, eat — all with the same stem eat will be counted together. The most common algorithm which
+
+is empirically proved to be very effective is the Porter’s algorithm (Porter 1997). Stemming algorithms
+have the advantage of reducing the corpus size thus making information retrieval a faster process. There
+are several types of stemming algorithms. Affix removal algorithms are the most common. Affix removal
+stemming algorithms remove affixes (suffixes or prefixes) from words producing a root form called a
+stem. Stemming algorithms are used in many types of language processing and text analysis systems,
+and are also widely used in summarization, Information Retrieval and database search systems.
+
+#FILES (create and save):
+
+--- (text1.txt) ---
+i am a tea pot short and stout
+i just wanna rollie rollie
+I am a rice bowl full of sprout
+
+--- (text2.txt) ---
+I am a rice bowl full of sprout
+
+#CODE:
+
+CMD:
+>pip install nltk
+>pip install numpy
+Python Shell:
+>>> nltk.download('punkt')
+>>> nltk.download('stopwords')
+Python:
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import numpy as np
+import nltk
+def process(file):
+raw = open(file).read()
+tokens = word_tokenize(raw)
+words = [w.lower() for w in tokens]
+
+porter = nltk.PorterStemmer()
+stemmed_tokens =[porter.stem(t) for t in words]
+stop_words = set(stopwords.words('english'))
+filtered_tokens = [w for w in stemmed_tokens if not w in stop_words]
+count = nltk.defaultdict(int)
+for word in filtered_tokens:
+count[word] += 1
+return count
+def cos_sim(a, b):
+dot_product = np.dot(a, b)
+norm_a = np.linalg.norm(a)
+norm_b = np.linalg.norm(b)
+return dot_product / (norm_a * norm_b)
+def getSimilarity(dict1, dict2):
+all_words_list = []
+for key in dict1:
+all_words_list.append(key)
+for key in dict2:
+all_words_list.append(key)
+all_words_list_size = len(all_words_list)
+v1 = np.zeros(all_words_list_size)
+v2 = np.zeros(all_words_list_size)
+i = 0
+for (key) in all_words_list:
+v1[i] = dict1.get(key, 0)
+v2[i] = dict2.get(key, 0)
+i += 1
+return cos_sim(v1, v2)
+if __name__ == '__main__':
+dict1 = process('text1.txt')
+dict2 = process('text2.txt')
+print('Similarity between two documents(by line): ', getSimilarity(dict1, dict2))
+
+#OUTPUT:
+Similarity between two documents (by line): 0.6666666666666666

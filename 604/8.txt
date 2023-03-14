@@ -1,0 +1,102 @@
+#AIM: WAP to implement a simple web-crawler.
+
+#THEORY:
+
+A web crawler (also known as a web spider or web robot) is a program or automated script which
+browses the World Wide Web in a methodical, automated manner.
+This process is called Web crawling or spidering.
+Many legitimate sites, in particular search engines, use spidering as a means of providing up-to-date
+data.
+Web crawlers are mainly used to create a copy of all the visited pages for later processing by a
+search engine, that will index the downloaded pages to provide fast searches.
+Crawlers can also be used for automating maintenance tasks on a Web site, such as checking links or
+validating HTML code.
+Crawlers consume resources on visited systems and often visit sites without approval. Issues of
+schedule, load, and "politeness" come into play when large collections of pages are accessed.
+Mechanisms exist for public sites not wishing to be crawled to make this known to the crawling
+agent. For example, including a robots.txt file can request bots to index only parts of a website, or
+nothing at all.
+
+#CODE(A):
+
+from html.parser import HTMLParser
+from urllib.request import urlopen
+from urllib import parse
+
+class LinkParser(HTMLParser):
+def getLinks(self,url):
+self.links=[]
+self.baseUrl=url
+response=urlopen(url)
+if response.getheader('Content-Type')=='text/html':
+htmlBytes=response.read()
+
+htmlString=htmlBytes.decode('utf-8')
+self.feed(htmlString)
+return htmlString,self.links
+else:
+return "",[]
+
+def spider(url,word,maxPages):
+pagesToVisit=[url]
+numberVisited=0
+foundWord=False
+while numberVisited < maxPages and pagesToVisit !=[] and not foundWord:
+numberVisited=numberVisited+1
+url=pagesToVisit[0]
+pagesToVisit=pagesToVisit[1:]
+try:
+print(numberVisited,'Visited:',url)
+parser=LinkParser()
+data,links=parser.getLinks(url)
+#data,links=parser.getLinks(url)
+if data.find(word)>-1:
+foundWord=True
+pagesToVisit+=links
+print('**Success!**')
+except:
+print('**Failed!**')
+if foundWord:
+print('The word',word,'was found at',url)
+
+else:
+print('Word never found!')
+
+spider("https://royalcollegemiraroad.edu.in/","Vision",10)
+spider("https://www.dreamhost.com/","engines",100)
+spider("https://www.dreamhost.com","starting",1)
+
+#OUTPUT(A):
+1 Visited: https://royalcollegemiraroad.edu.in/
+**Success!**
+The word Vision was found at https://royalcollegemiraroad.edu.in/
+1 Visited: https://www.dreamhost.com/
+**Success!**
+The word engines was found at https://www.dreamhost.com/
+1 Visited: https://www.dreamhost.com
+**Success!**
+The word starting was found at https://www.dreamhost.com
+
+#CODE(B):
+
+(CMD)
+>pip install requests
+>pip install beautifulsoup4
+(Python)
+import requests
+from bs4 import BeautifulSoup
+
+url=("www.amazon.in")
+code=requests.get("https://"+url)
+plain=code.text
+s=BeautifulSoup(plain,features="html.parser")
+for link in s.find_all("a"):
+print(link.get("href"))
+
+#OUTPUT(B):
+/dp/B07DJD1RTM?pf_rd_p=fa25496c-7d42-4f20-a958-
+cce32020b23e&pf_rd_r=P856WSD3SWRD41XKSQF5
+/dp/B07HGMQX6N?pf_rd_p=fa25496c-7d42-4f20-a958-
+cce32020b23e&pf_rd_r=P856WSD3SWRD41XKSQF5
+/dp/B07DJHXTLJ?pf_rd_p=fa25496c-7d42-4f20-a958-
+cce32020b23e&pf_rd_r=P856WSD3SWRD41XKSQF5

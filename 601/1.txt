@@ -1,0 +1,42 @@
+#AIM: Understanding the Sensor Node Hardware. (For eg: Sensors, Nodes(Sensor mote), Base Station,
+
+Graphical User Interface.)
+
+#THEORY:
+A wireless sensor network (WSN) is a hardware and software package that are typically:
+
+A. Sensor
+
+‘Sensors’ are connected to each node by a wired connection. In our case, we use sensors that can
+measure soil moisture, electrical conductivity, soil temperature, water pressure, flow rate, or a range of
+weather variables (light, air temperature, wind, humidity, etc.).
+
+Sensor
+B. Nodes/Sensor mote
+
+‘Nodes’ collect the data from sensors and transmit that to a base station computer using a one-way (in
+the case of monitoring) or two-way (in the case of monitoring and control) radio. Nodes can simply
+monitor environmental and soil conditions or can be used to make control decisions. For example, some
+nodes have the capability to control an electric valve, such as an irrigation valve.
+
+Nodes
+
+C. Base Station
+
+‘Base Station’ computer connects the system to the internet, so that data collected by the nodes, then
+transmitted to the base station computer, can be viewed anywhere an internet connection is available.
+
+Base Station
+D. Graphical User Interface
+
+‘Graphical User Interface’ is the web-based software package, that allows the data collected by sensors
+to be viewed. The software is also used to set irrigation parameters. It is the web-based software
+package, that allows the data collected by sensors to be viewed. The software is also used to set
+irrigation parameters. The graphical user interface above depicts the volumetric water content (soil
+moisture) as horizontal lines and irrigation events and amounts as bars. Notice the increase in soil
+moisture after each irrigation event. A very simple WSN example that many can relate to is that of the
+wireless environmental monitoring system used by the National Weather Service (NWS). You have
+probably seen these at a local airport or school. In this case, sensors measure environmental conditions
+and send this data to a node that wirelessly transmits the data using a cell signal or wireless signal to a
+base-station computer where NWS employees (and you) can view the current temperature (or
+rainfall/dew point, wind, etc.) via a website or application (‘app’).

@@ -1,0 +1,41 @@
+#REQUIREMENTS:
+• System:
+▪ x64 compatible PC/Laptop that supports x64 compatible Virtual hosts
+▪ Latest VirtualBox application installed on your PC/Laptop
+▪ Atleast 4 GB Hard Drive space
+▪ 6 GB RAM
+▪ 4 CPU cores (Quad Core)
+• NOTE: Enable Virtualization from BIOS before proceeding to ensure smooth Hardware
+Acceleration
+• Download the Preinstalled Openstack CentOS 7 VirtualBox Image from
+https://drive.google.com/open?id=0Bw59oF2-DxdEU2hrb3AwN2RicFk
+• Unzip the file and you’ll see the Centos-openstack.vdi(Virtual Disk Image) file that we’ll be using:
+
+#STEPS:
+
+---------- PART-A [Setting up the machine] ----------
+A1) Close all other applications running over the system and then only proceed.
+A2) Open “Oracle VM”, create a “New Machine” [i.e. Guest Machine]:
+• Create a New virtual machine with Name: (centOS) & Type: (Linux) & Version: (Other
+Linux (64-bit)):
+
+• Set Memory size to 4GB minimum:
+
+• Select Use an existing virtual hard disk file option > browse & add that downloaded
+Centos-openstack.vdi file here > click “Create”:
+
+A3) Apply some Network Settings (Adapter Type & Port Forwarding):
+• Right-click over machine name(centOS) > Settings > Network > Adapter 1 > Advanced >
+Set the Adapter Type: (Desktop):
+
+• Now click the Port Forwarding button and add 3 Port Forwarding Rules with the Add
+icon > click “OK” > OK:
+
+A4) “Start” that created “Guest Machine”:
+• Start the machine, wait a while until it boots up and shows a console(terminal) screen.
+
+• Enter Credentials as:
+▪ username: openstack
+▪ password: openstack
+• Type a command (sudo dhclient enp0s3) & type a prompted password(openstack)
+• Type command (ifconfig) to check if you have obtained the 10.0.2.15 IP for enp0s3

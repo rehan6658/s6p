@@ -1,0 +1,61 @@
+Aim: Exploring and understanding TinyOS computational concepts:- Events, Commands ,Task
+and NesC model and NesC Components
+
+1) Tiny OS computational concepts :-
+ A microthreaded OS that draws on previous work done for lightweight thread support,
+and efficient network interfaces.
+ Two level scheduling structure.
+Long running tasks that can be interrupted by hardware events.
+small, tightly integrated design that allows crossover of software components into
+hardware.
+
+Events:
+Event handlers deal with hardware events (interrupts) directly or indirectly.
+Deposit information into a frame.
+Post tasks.
+
+Signal higher level events.
+Call lower level commands.
+Commands:
+Non-blocking requests to lower level components.
+Deposit request parameters into a component’s frame, and post a task for later execution.
+Can also invoke lower level commands, but cannot block.
+To avoid cycles, commands cannot signal events.
+Return status to the caller.
+Tasks :
+Perform the primary computation work.
+Atomic with respect to other tasks, and run to completion, but can be preempted by events.
+Allow the OS to allocate a single stack assigned to the currently executing task.
+Call lower level commands.
+Signal higher level events.
+Schedule other tasks within a component.
+Simulate concurrency using events.
+
+2) NesC model :
+● A “holistic” approach to networked embeddedsystems.
+● Supports and reflects TinyOS&#39;s design.
+● Extends a subset of C.
+● A static language.
+– All resources known at compile-time.
+– Call-graph fully known at compile-time.
+Design of NesC model
+● Components.
+
+● Bidirectional interfaces.
+● Simple expressive concurrency model.
+● Whole-program analysis.
+
+3) Nes C Component
+● Challenge: platform diversity, flexible SW/HW boundary, applications deeply tied to
+hardware.
+● Encourages modular design.
+● Restrict access to private data.
+● Allow underlying implementations to be replacedeasily.
+● Can abstract HW using thin wrappers.
+● Allow specialization of applications to hardware.
+● Modules implement application code.
+● Modules have private state.
+– Sharing of data among components is discouraged.
+● Convention:
+– Module names end with &#39;M&#39;, e.g. BlinkM.
+– Module variables start with &#39;m_&#39;, e.g. m_timers.

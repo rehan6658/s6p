@@ -1,0 +1,14 @@
+#AIM: Create a mobile network using Cell Tower, Central Office Server, Web browser and Web Server.
+
+Simulate connection between them.
+
+#STEPS:
+1) Create a network using smartphone,wireless router WRT300N,Hub-pt,1841 Router ,central-
+office-server,Cell-Tower.
+2) Connect cell tower and central office server using coaxial cable.
+3) Connect wireless router WRT300N, Hub-pt, 1841Router , central-office-server using copper
+straight through wire.
+4) Click on wireless router. In config tab select internet. In internet choose ipConfiguration as static
+and set ip address and default gateway.
+5) Click on router 1841. In config tab select interface and give ip address.
+6) Click on smartphone and ping router 1841.

@@ -1,0 +1,31 @@
+#AIM: Create MAC protocol simulation implementation for wireless sensor Network.
+#STEPS:
+Consider the following topology :
+
+Adding the wireless interface to each Laptops
+
+Copy the MAC address of each component as follows
+
+We note the following MAC addresses and convert them to the following form
+COMPONENT MAC Address Converted MAC Address
+Laptop0 0002.160E.40CE 00:02:16:0E:40:CE
+Laptop1 000B.BEBB.5590 00:0B:BE:BB:55:90
+Laptop2 0060.70D0.BCDB 00:60:70:D0:BC:DB
+TabletPC0 0040.0B38.4B8B 00:40:0B:38:4B:8B
+Smartphone1 0001.97D2.1052 00:40:0B:38:4B:8B
+Smartphone0 0001.647A.027C 00:01:64:7A:02:7C
+
+Now we add few addresses in the wireless MAC filter of the Wireless Router and
+then use the given options for either allow or deny the Wireless access
+
+As seen in above screen shot we add the MAC address of Laptop0, TabletPC
+SmartPhone0 in the list so as to deny them accessing the Wireless network and
+then save the settings
+
+The result so obtained is as shown, the three devices denied any wireless
+connectivity
+
+Similarly we can change the setting so that the above devices get wireless
+connectivity and the remaining devices do not get the wireless connectivity
+
+And save the setting and get the following

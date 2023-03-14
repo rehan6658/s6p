@@ -1,0 +1,111 @@
+#AIM: To study cloud computing architecture and cloud computing models.
+
+#THEORY:
+--------------------------
+1) Cloud Computing Definition.
+By definition, “the practice of using a network of remote servers hosted on the Internet to
+store, manage, and process data, rather than a local server or a personal computer.”
+Cloud computing is the on-demand availability of computer system resources, especially
+data storage and computing power, without direct active management by the user. The
+term is generally used to describe data centers available to many users over the Internet.
+Large clouds, predominant today, often have functions distributed over multiple locations
+from central servers. If the connection to the user is relatively close, it may be designated an
+edge server.
+Clouds may be limited to a single organization (enterprise clouds), or be available to many
+organizations (public cloud).
+Cloud computing relies on sharing of resources to achieve coherence and economies of
+scale.
+--------------------------
+
+2) Three main benefits of cloud computing:
+• Self-service
+Self-service cloud computing is a form of private cloud service where the customer
+provisions storage and launches applications without going through an external cloud
+service provider. With a self-service cloud, users access a web-based portal, where they
+can request or configure servers and launch applications.
+• Elasticity
+In cloud computing, elasticity is defined as "the degree to which a system is able to
+adapt to workload changes by provisioning and de-provisioning resources in an
+autonomic manner, such that at each point in time the available resources match the
+current demand as closely as possible". Elasticity is a defining characteristic that
+differentiates cloud computing from previously proposed computing paradigms, such as
+grid computing. The dynamic adaptation of capacity, e.g., by altering the use of
+computing resources, to meet a varying workload is called "elastic computing".
+
+• Pay per use
+Pay-as-you-go cloud computing (PAYG cloud computing) is a payment method for cloud
+computing that charges based on usage. The practice is similar to that of utility bills,
+using only resources that are needed.
+One major benefit of the pay-as-you-go method is that there are no wasted resources,
+since users only pay for services procured, rather than provisioning for a certain amount
+of resources that may or may not be used.
+--------------------------
+
+3) Three types of service:
+• Storage as a Service (SaaS)
+Storage as a service (SaaS) is a business model in which a company leases or rents its
+storage infrastructure to another company or individuals to store data. Small companies
+and individuals often find this to be a convenient methodology for managing backups,
+and providing cost savings in personnel, hardware and physical space.
+A company providing SaaS may be called a storage service provider (SSP). Storage as a
+service can also be referred to as hosted storage.
+• Platform as a Service (PaaS)
+
+Platform as a Service (PaaS) or Application Platform as a Service (aPaaS) or platform-
+based service is a category of cloud computing services that provides a platform
+
+allowing customers to develop, run, and manage applications without the complexity of
+building and maintaining the infrastructure typically associated with developing and
+launching an app.
+• Infrastructure as a Service (IaaS)
+Infrastructure as a service (IaaS) are online services that provide high-level APIs used to
+dereference various low-level details of underlying network infrastructure like physical
+computing resources, location, data partitioning, scaling, security, backup etc. A
+hypervisor, such as Xen, Oracle VirtualBox, Oracle VM, KVM, VMware ESX/ESXi, or
+Hyper-V, LXD, runs the virtual machines as guests. Pools of hypervisors within the cloud
+operational system can support large numbers of virtual machines and the ability to
+scale services up and down according to customers' varying requirements.
+--------------------------
+
+4) Cloud Computing Model:
+• Public cloud
+A public cloud is a platform that uses the standard cloud computing model to make
+resources, such as virtual machines (VMs), applications or storage, available to users
+remotely. Public cloud services may be free or offered through a variety of subscription
+or on-demand pricing schemes, including a pay-per-usage model.
+
+• Private cloud
+Private cloud refers to a model of cloud computing where IT services are provisioned
+over private IT infrastructure for the dedicated use of a single organization. A private
+cloud is usually managed via internal resources.
+The terms private cloud and virtual private cloud (VPC) are often used interchangeably.
+Technically speaking, a VPC is a private cloud using a third-party cloud provider's
+infrastructure, while a private cloud is implemented over internal infrastructure.
+Private clouds may also be referred to as enterprise clouds.
+• Hybrid cloud
+Hybrid cloud is a cloud computing environment that uses a mix of on-premises, private
+cloud and third-party, public cloud services with orchestration between the two
+platforms. By allowing workloads to move between private and public clouds as
+computing needs and costs change, hybrid cloud gives businesses greater flexibility and
+more data deployment options.
+--------------------------
+5) Advantages and Disadvantages
+• Advantages:
+Cost Savings
+High Speed
+Back-up and restore data
+Unlimited storage capacity
+Quick Deployment
+• Disadvantages:
+Technical Issues
+Internet Connectivity
+Lacks of Support
+Security Threat in the Cloud
+Downtime
+--------------------------
+
+6) Conclusion
+Despite all the pro and cons, we can't deny the fact that Cloud Computing is the fastest
+growing part of network-based computing. It offers a great advantage to customers of all
+sizes: simple users, developers, enterprises and all types of organizations. So, this
+technology here to stay for a long time.

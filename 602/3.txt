@@ -1,0 +1,60 @@
+#AIM: Write a program for web feed.
+
+#REQUIREMENTS:
+• Stable internet connection.
+• Add RSS extension plugin into your browser.
+#THEORY:
+Really Simple Syndication (RSS): allows you to syndicate your site content; allows personalized views for
+different sites; defines an easy way to share and view headlines and content; RSS files can be
+automatically updated & they’re written in XML.
+#STEPS:
+1) Create a Java Web Application:
+• Open NetBeans IDE > File > New Project > Java Web > Web Application > Project Name:
+(p4) > Finish. (you’ll get an “index.jsp” file)
+
+2) Save rss template code under “web” folder of NetBeans project:
+• Navigate to the “web” folder of your NetBeans project directory. Create a notepad file
+with some rss template code and save it as “rss.xml”
+
+--- (rss.xml) ---
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>W3Schools Home Page</title>
+<link>https://www.w3schools.com</link>
+<description>Free web building tutorials</description>
+<item>
+<title>RSS Tutorial</title>
+<link>https://www.w3schools.com/xml/xml_rss.asp</link>
+<description>New RSS tutorial on W3Schools</description>
+</item>
+<item>
+<title>XML Tutorial</title>
+
+<link>https://www.w3schools.com/xml</link>
+<description>New XML tutorial on W3Schools</description>
+</item>
+</channel>
+</rss>
+3) Link the “rss.xml” file with your “index.jsp” page:
+• In NetBeans, under “index.jsp” file, add <a> tag with a link to the “rss.xml” file.
+
+--- (index.jsp) ---
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSP Page</title>
+</head>
+<body>
+<center>
+<a href="rss.xml"><h1>Click here to view the feed!</h1></a>
+</center>>
+</body>
+</html>
+4) Choose your browser and Run the project:
+• Run the project.
+• (If issue arises in other browsers then choose Internet Explorer as it already has an
+inbuilt RSS Feed reader, so select “Internet Explorer” under Tools > Options, then Run).

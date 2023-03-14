@@ -1,0 +1,68 @@
+#AIM: WAP to demonstrate bitwise operation.
+
+#THEORY:
+Bitwise operators
+
+Bitwise OR (|) –
+This operator is binary operator, denoted by ‘|’. It returns bit by bit OR of input values, i.e., if either of the bits is 1, it
+gives 1, else it gives 0.
+For example,
+a = 5 = 0101 (In Binary)
+b = 7 = 00011001 (In Binary)
+
+Bitwise OR Operation of 5 and 7
+0101
+| 0111
+________
+0111 = 7 (In decimal)
+Bitwise AND (&) –
+This operator is binary operator, denoted by ‘&’. It returns bit by bit AND of input values, i.e., if both bits are 1, it gives 1,
+else it gives 0.
+For example,
+a = 5 = 0101 (In Binary)
+b = 7 = 00011001 (In Binary)
+
+Bitwise AND Operation of 5 and 7
+0101
+& 0111
+________
+0101 = 5 (In decimal)
+Bitwise Complement (~) –
+This operator is unary operator, denoted by ‘~’. It returns the one’s compliment representation of the input value, i.e.,
+with all bits inversed, means it makes every 0 to 1, and every 1 to 0.
+For example,
+~ 0101
+________
+1010 = 10 (In decimal)
+
+#CODE:
+
+package prac1;
+import java.util.Scanner;
+public class Prac1 {
+
+    public static void main(String[] args) {
+        int a , b, c;
+        Scanner sc = new Scanner(System.in);
+        a = sc.nextInt();
+        b = sc.nextInt();
+        
+        c = a & b;
+        System.out.println("a AND b is " + c);
+        
+        c = a | b;
+        System.out.println("a OR b is " + c);
+        
+        c = a ^ b;
+        System.out.println("a XOR b is " + c);
+        
+        c = ~a;
+        System.out.println("a NOT b is " + c);
+        
+        c = a << 2;
+        System.out.println("a LeftShift b is " + c);
+        
+        c = a >> 2;
+        System.out.println("a RightShift b is " + c);
+    }
+}

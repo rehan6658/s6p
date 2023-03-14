@@ -1,0 +1,34 @@
+#AIM: WAP for mining “Twitter” to identify tweets for a specific period and identify trends and name
+
+entities.
+
+#CODE:
+
+CMD:
+> pip install tweepy
+Python:
+"""
+(keys will be provided)
+Consumer API keys:
+ZooSQTQKtVQDdQs06fAnJg95w (API key)
+YFYmoadhawegIKtK6sPsHQ5OIKV5wGf0Nrt4crySSeHnrivQbQ (API secret key)
+Access token & access token secret:
+1095205263856959489-jJGajP3NboFwhEZr4OAOv6dQalkUm1 (Access token)
+KRdQflh4HYEfK6DoM36Ay9XbozOFXkxVNSH3U4cM2aC9H (Access token secret)
+"""
+import tweepy
+ck='ZooSQTQKtVQDdQs06fAnJg95w'
+cs='YFYmoadhawegIKtK6sPsHQ5OIKV5wGf0Nrt4crySSeHnrivQbQ'
+at='1095205263856959489-jJGajP3NboFwhEZr4OAOv6dQalkUm1'
+atc='KRdQflh4HYEfK6DoM36Ay9XbozOFXkxVNSH3U4cM2aC9H'
+auth=tweepy.OAuthHandler(ck,cs)
+auth.set_access_token(at,atc)
+api=tweepy.API(auth)
+name='bachhi'
+tweetCount=13
+results=api.user_timeline(id=name,count=tweetCount)
+for tweet in results:
+print(tweet.text)
+
+#OUTPUT:
+@PicturesPVR they are rescuing Wesley Snipes' character
