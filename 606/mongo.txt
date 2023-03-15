@@ -1,0 +1,88 @@
+Perform the following operations in MongoDB.
+
+PART ((A))
+1) To create a database "inventory" and a collection "products" in MongoDB, follow these steps:
+
+  use inventory
+  db.createCollection("products")
+  
+
+
+2) To add 5 product documents in the "products" collection, you can use the insertMany() method:
+
+  db.products.insertMany([
+    {productno: "p1", description: "Samsung Galaxy S21 Ultra", company: "Samsung", price: 1199},
+    {productno: "p2", description: "iPhone 13 Pro Max", company: "Apple", price: 1099},
+    {productno: "p3", description: "Google Pixel 6 Pro", company: "Google", price: 899},
+    {productno: "p4", description: "OnePlus 10 Pro", company: "OnePlus", price: 999},
+    {productno: "p5", description: "Xiaomi Mi 12", company: "Xiaomi", price: 699}
+  ])
+
+
+3) To list all products of "Samsung" in the "products" collection, you can use the find() method with a query that matches the "company" field:
+
+  db.products.find({company: "Samsung"});
+  db.product.find().pretty();
+
+
+4) To list all products in ascending or descending order of their price, you can use the find() method with the sort() method. To sort in ascending order, pass {price: 1} as an argument to sort(). To sort in descending order, pass {price: -1} as an argument to sort().
+
+  # Ascending order
+  db.products.find().sort({price: 1})
+
+  # Descending order
+  db.products.find().sort({price: -1})
+
+
+5) To update the price of a product "p1" to 10000, you can use the updateOne() method with a filter that matches the "productno" field:
+
+  db.products.updateOne({productno: "p1"}, {$set: {price: 10000}})
+
+
+6) Drop database.
+  
+  db.dropDatabase()
+
+
+
+
+Part((B))
+1) Create database “exam” & create collection “result” to store student marks. For collection “result”, details like (seatno, name, class, marks, grade) need to be maintained. Grades are (F,D, C, B, A, O)
+
+  use exam
+  db.createCollection("result")
+  
+
+
+2) To add a document with sample data into the "result" collection, you can use the insertOne() method:
+
+  db.result.insertOne({seatno: "101", name: "John Doe", class: "TYCS", marks: 650, grade: "B"})
+  db.result.insertOne({seatno: "102", name: "Jane Doe", class: "TYCS", marks: 950, grade: "O"})
+  db.result.insertOne({seatno: "103", name: "Jeremy Dick", class: "SYCS", marks: 750, grade: "A"})
+
+
+
+
+3) To list all student details from the "result" collection, you can use the find() method:
+
+  db.result.find()
+
+
+
+4) To list all students who have scored more than 500 marks, you can use the find() method with a query that matches the "marks" field:
+
+  db.result.find({marks: {$gt: 500}})
+
+
+
+5) To list all students of TYCS in ascending order of marks, you can use the find() method with a query that matches the "class" field and the sort() method to sort the results by the "marks" field:
+
+  db.result.find({class: "TYCS"}).sort({marks: 1})
+
+
+
+6) To update the marks of a student with "seatno" 202 to 750, you can use the updateOne() method with a filter that matches the "seatno" field:
+
+  db.result.updateOne({seatno: "202"}, {$set: {marks: 750}})
+
+
