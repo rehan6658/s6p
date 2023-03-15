@@ -1,0 +1,26 @@
+# Aim : Simulate a mobile Adhoc network with directional antenna
+
+Get Shit together: 
+1) HomeGateway
+2) Fan 
+3) Motion Sensor 
+4) Smartphone 
+
+Steps: 
+1. Click on Fan and go to config > IoT Server and set it to HomeGateway
+2. Click on Motion Sensor go to config > IoT Server and set it to HomeGateway
+3. Click on Smartphone go to config > Wireless and set SSID to "HomeGateway"
+4. All devices should be connected now 
+5. Now go to smartphone and open a web browser from Desktop > Web Browser 
+6. Copy the IP Address of the HomeGateway and search the ip addr in web browser
+7. username "admin" password "admin"
+8. Go in "conditions" tab and add new rules 
+  1) Fan ON
+    when "sensor" on is true
+      then set :
+        Fan Status to High
+  2) Fan OFF
+    when "sensor" on is false
+      then set:
+        Fan Status to off
+9. Press Alt and hover cursor over the motion sensor.
