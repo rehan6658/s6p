@@ -17,13 +17,10 @@ multiple two-sample t-tests, but is more conservative, resulting
 in fewer type I errors, and is therefore suited to a wide range of
 data.
 
-data(&quot;warpbreaks&quot;)
-head(warpbreaks)
-summary(warpbreaks)
-model1&lt;-aov(breaks~wool+tension,data=warpbreaks)
-summary(model1)
-plot(model1)
-model2&lt;-
-aov(breaks~wool+tension+wool:tension,data=warpbreaks)
-summary(model2)
-plot(model2)
+data1<- read.csv(file.choose().sep=",",header=T)
+data1
+names(data1)
+head(data1)
+anv<-aov(formula=Employee_id~Employee_name+Emp_gender, data=data1)
+anv
+summary(anv)
