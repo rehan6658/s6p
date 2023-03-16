@@ -46,54 +46,64 @@ future using savetoCSV() function.
 
 #CODE:
 
-import requests
-import xml.etree.ElementTree as ET
-import csv
-def loadRSS():
-# url of rss feed
-url = 'http://hindustantimes.com/rss/topnews/rssfeed.xml'
-# creating HTTP response object from given url
-resp = requests.get(url)
-# saving the xml file
-with open('topnewsfeed.xml', 'wb') as f:
-f.write(resp.content)
-def parseXML(xmlfile):
-# create element tree object
-tree = ET.parse(xmlfile)
-# get root element
-root = tree.getroot()
-# create empty list for news items
-newsitems = []
-# iterate news items
-for item in root.findall('./channel/item'):
-# empty news dictionary
-news = {}
+import xml.dom.minidom
 
-# iterate child elements of item
-for child in item:
-# special checking for namespace object content:media
-if child.tag == '{http://search.yahoo.com/mrss/}content':
-news['media'] = child.attrib['url']
-elif child.text is not None:
-news[child.tag] = child.text.encode('utf-8')
-else:
-newsitems.append(news)
-# return news items list
-return newsitems
-def savetoCSV(newsitems, filename):
-# specifying the fields for csv file
-fields = ['guid', 'title', 'pubDate', 'description', 'link', 'media']
-# writing to csv file
-with open(filename, 'w') as csvfile:
-# creating a csv dict writer object
-writer = csv.DictWriter(csvfile, fieldnames=fields)
-# writing headers (field names)
-writer.writeheader()
-# writing data rows
-writer.writerows(newsitems)
-# load rss from web to update existing xml file
-loadRSS()
-# parse xml file
-newsitems = parseXML('topnewsfeed.xml')
-# store news items in a csv file
-savetoCSV(newsitems, 'topnews.csv')
+
+def parse_xml(xml_string):
+    # parse the xml string
+    dom = xml.dom.minidom.parseString(xml_string)
+
+    # get the root element
+    root = dom.documentElement
+
+    # print the tag name of the root element
+    print("Root element: " + root.tagName)
+
+    # get all child nodes of the root element
+    nodes = root.childNodes
+
+    # iterate over each child node
+    for node in nodes:
+        # check if the node is an element node
+        if node.nodeType == xml.dom.minidom.Node.ELEMENT_NODE:
+            # print the tag name of the element node
+            print("Element node: " + node.tagName)
+
+            # get all attributes of the element node
+            attrs = node.attributes
+
+            # iterate over each attribute
+            for attr_name in attrs.keys():
+                # get the attribute value
+                attr_value = attrs.get(attr_name).nodeValue
+                # print the attribute name and value
+                print("  Attribute: " + attr_name + " = " + attr_value)
+
+            # check if the element node has any child nodes
+            if node.hasChildNodes():
+                # get the first child node
+                child = node.firstChild
+
+                # iterate over all child nodes
+                while child:
+                    # check if the child node is an element node
+                    if child.nodeType == xml.dom.minidom.Node.ELEMENT_NODE:
+                        # print the tag name of the element node
+                        print("  Element node: " + child.tagName)
+                        # print the text content of the element node
+                        print("    Text: " + child.firstChild.nodeValue.strip())
+
+                    # get the next sibling node
+                    child = child.nextSibling
+
+
+# example usage
+xml_string = '''<Employee>
+                    <name>John Doe</name>
+                    <age>19</age>
+                    <location>Mira Road</location>
+                    <skills name="python"/>
+                    <skills name="javascript"/>
+                    <skills name="xml"/>
+                </Employee>'''
+parse_xml(xml_string)
