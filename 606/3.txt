@@ -14,14 +14,33 @@ http://localhost:5984/_utils/ in browser.
 (NOTE: This is the CouchDB database’s web-based interface)
 
 • Perform the commands in the R-Tool.
+# Auth if required 
+
+library(sofa)
+couchdb_url <- "http://localhost:5984/"
+username <- "myusername"
+password <- "mypassword"
+
+# create a new Cushion object
+cushion <- Cushion$new(couchdb_url)
+
+# authenticate with the server using the username and password
+cushion$auth(username, password)
+
+# now you can perform database operations using the Cushion object
+# for example, to create a new database:
+cushion$create_database("mydatabase")
 
 #STEPS:
 1) Install “sofa” package:
 > install.packages('sofa')
+
 2) Load the “sofa” package in R-Tool’s library:
 > library('sofa')
+
 3) Create a connection object (x):
 > x=Cushion$new()
+
 4) Check whether object (x) created or not:
 > x$ping()
 $couchdb
@@ -42,6 +61,7 @@ $features[[2]]
 $vendor
 $vendor$name
 [1] "The Apache Software Foundation"
+
 5) Create database “ty”:
 > db_create(x, dbname='ty')
 $ok
@@ -52,6 +72,7 @@ $ok
 6) List all databases:
 > db_list(x)
 [1] "ty"
+
 7) Create three JSON documents (doc1, doc2, doc3) with docid (a_1, a_2, a_3) respectively:
 > doc1 = '{"rollno":"01", "name":"masha", "grade":"a"}'
 > doc_create(x, doc1, dbname="ty", docid="a_1")
@@ -70,6 +91,7 @@ $id
 [1] "a_2"
 $rev
 [1] "1-5778c6763a8107044b6b2146c063651e"
+
 > doc3 = '{"rollno":"03", "name":"spike", "grade":"b", "remark":"pass"}'
 > doc_create(x, doc3, dbname="ty", docid="a_3")
 $ok
