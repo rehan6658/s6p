@@ -1,0 +1,17 @@
+#Aim: Use Nemesy to launch DoS (Denial of Service) attack.
+
+#Theory:
+
+A Denial-of-Service (DoS) attack is a type of cyber attack where an attacker attempts to make a website, server, or network unavailable to its intended users by overwhelming it with traffic or other types of requests. The goal of a DoS attack is to disrupt the normal functioning of the target system by making it unable to respond to legitimate requests or to process data.
+
+There are several methods that attackers can use to launch DoS attacks, such as:
+
+Flood attacks: This involves flooding the target system with a large number of requests in a short amount of time, overwhelming its processing capacity.
+
+Application layer attacks: This targets specific applications or services running on the target system, exploiting vulnerabilities in the software to cause a crash or slowdown.
+
+Distributed DoS (DDoS) attacks: This involves using multiple systems (often compromised computers or "zombies" in a botnet) to launch a coordinated attack on the target system, making it even harder to defend against.
+
+DoS attacks can have serious consequences, ranging from temporary disruption of services to long-term damage to a company's reputation and financial losses. To defend against DoS attacks, organizations can implement various measures such as firewalls, intrusion prevention systems (IPS), and content delivery networks (CDNs) that can help mitigate the impact of an attack.
+
+

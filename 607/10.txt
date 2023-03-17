@@ -1,0 +1,64 @@
+# Aim : Session impersonation using Firefox/Chrome and Tamper Data add-on
+
+# Steps :
+
+A] Session Impersonation in Chrome
+	i) Install EditThisCookie extension in google chrome.
+	ii) Now open any site dashboard like Gmail, FB, Semrush or any with login credentials.
+	iii) Now click on extension and then click on export button to copy the session details.
+	iv) Paste this details on a notepad and clos the window tab without logged out.
+	v) Now go to history and delete the history along with cookies also.
+	vi) Now again try to visit the site. This time you won’t be logged in. you have to enter the login
+details. Now close the tab of site.
+	vii) Now copy the text from notepad which you had copied in step 4. Now open the extension
+and click on import.
+	viii) Paste the session details in import box and click on green color right mark.
+	ix) Now again try to visit the site. In my case, it is https://www.semrush.com/dashboard/. It
+will automatically open your dashboard without asking for login details.
+
+
+
+B] Steps on Firefox 
+	i) Open FireFox
+	ii) Go to Tools > Addons > Extension
+	iii) Search and install EditThisCookie or Cookie Import/Export or any other Cookie tool
+	iv) Then Click on Cookie extension to get cookie
+	v) Open a Website and Login and then click on export cookie
+	vi) Logout from the webpage once the cookie got exported
+Paste the cookie in the tool which you have exported and click on green tick
+	vii) Tamper DATA add-on
+1. Open FireFox
+2. Go to Tools > Addons > Extension
+3. Search and install Temper Data
+Select a website for tempering data e.g(razorba)
+	viii) Select any item to but
+Then Click to add cart
+Then Click on tool for tempering Data
+	ix) Then start Tempering the data.
+
+
+
+
+#Theory :
+
+Session impersonation and cookie tampering are both types of security vulnerabilities that can occur in web applications.
+
+Session impersonation occurs when an attacker gains unauthorized access to a user's session ID, which is often stored in a cookie or a URL parameter, and uses it to impersonate the user and access their account or perform actions on their behalf. This can happen when a web application fails to properly protect session IDs or when they are transmitted over unencrypted channels, such as HTTP instead of HTTPS.
+
+Cookie tampering, on the other hand, occurs when an attacker modifies the value of a cookie, either to gain unauthorized access to a user's account or to alter the user's preferences or actions. This can happen when a web application fails to properly validate or secure cookies, or when cookies are transmitted over unencrypted channels.
+
+Both session impersonation and cookie tampering can be prevented by implementing secure coding practices, such as:
+
+Using secure session management techniques, such as generating random session IDs, using HTTPS to encrypt session IDs, and expiring sessions after a certain amount of time or after the user logs out.
+
+Using HTTP-only cookies, which are not accessible to JavaScript, to prevent XSS attacks that could steal the cookie's value.
+
+Implementing input validation and sanitization techniques to prevent malicious inputs from being used to hijack sessions or modify cookies.
+
+Implementing CSRF (Cross-Site Request Forgery) protection mechanisms to prevent attackers from tricking users into performing unintended actions.
+
+Regularly monitoring and auditing sessions and cookies to detect any suspicious activity.
+
+Overall, web developers should be aware of the risks associated with session impersonation and cookie tampering and take appropriate steps to protect user accounts and data from these types of attacks.
+
+

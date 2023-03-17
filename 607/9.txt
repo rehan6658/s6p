@@ -1,0 +1,32 @@
+# Aim : Perform sql injection attack using DVWA.
+
+# Steps :
+
+1) Go to SQL injection section in DVWA
+
+2) Try these form inputs 
+	a) 1=1
+	b) 1*
+	c) a' OR '=' 
+
+
+
+# Theory :
+
+SQL injection (SQLi) is a type of security vulnerability that can occur when a web application fails to properly sanitize user inputs, allowing an attacker to execute arbitrary SQL (Structured Query Language) code on the underlying database.
+
+When a web application uses user input to construct SQL queries without properly validating or escaping the input, an attacker can craft a malicious input that includes SQL commands or code. When the application executes the SQL query with the malicious input, the attacker's code is executed as well, giving the attacker unauthorized access to the database and its contents.
+
+The consequences of a successful SQL injection attack can be severe, allowing an attacker to view, modify, or delete sensitive data, such as user credentials, financial information, or personal data.
+
+SQL injection attacks can take many forms, such as:
+
+Union-based SQLi: This type of attack exploits the UNION SQL operator to combine the results of multiple SQL queries and extract information from the database.
+
+Error-based SQLi: This type of attack relies on the web application displaying error messages that reveal information about the underlying database, such as table names or column types.
+
+Blind SQLi: This type of attack does not reveal any information about the database to the attacker, but can still be used to execute arbitrary SQL code.
+
+To prevent SQL injection attacks, web developers should use prepared statements or parameterized queries to sanitize user inputs, instead of constructing SQL queries dynamically. Input validation and output encoding can also be used to prevent injection attacks. It is also important to keep the database software and web application updated with the latest security patches and to limit the privileges of database users to only what is necessary.
+
+

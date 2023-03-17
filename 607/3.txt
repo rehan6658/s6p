@@ -1,0 +1,26 @@
+#Aim : 
+- Use CryptTool to encrypt and decrypt RC4, AES and DES algorithms
+- Use HashCalc to generate hash using any 4 hashing algorithms 
+- Using HashCalc and MD5Calculator demonstarte how hash values change after a file is modified.
+
+
+#Theory :
+- RC4 (Rivest Cipher 4): RC4 is a symmetric key stream cipher algorithm that was designed by Ron Rivest of RSA Security in 1987. It is widely used in various protocols and applications, including SSL and TLS. RC4 generates a pseudorandom stream of bytes, which are XORed with the plaintext to produce the ciphertext. The algorithm is relatively fast and simple, but it has some known weaknesses, such as the key-scheduling algorithm and bias in the first few bytes of the keystream.
+
+- AES (Advanced Encryption Standard): AES is a symmetric key block cipher algorithm that was selected by the National Institute of Standards and Technology (NIST) as a replacement for DES in 2001. It is widely used in various applications and protocols, including SSL, TLS, and Wi-Fi security. AES uses a fixed block size of 128 bits and supports key sizes of 128, 192, or 256 bits. The algorithm is considered to be secure and has not been successfully attacked in practice.
+
+- DES (Data Encryption Standard): DES is a symmetric key block cipher algorithm that was developed by IBM in the 1970s and was later adopted by the U.S. government as a standard for protecting sensitive data. DES uses a fixed block size of 64 bits and a key size of 56 bits. The algorithm uses a Feistel structure, in which the plaintext is divided into two halves and each half is encrypted using a subkey derived from the main key. DES is considered to be insecure by today's standards due to its small key size and other weaknesses, and has been largely replaced by AES.
+
+In summary, RC4 is a stream cipher algorithm, while AES and DES are block cipher algorithms. AES is considered to be the most secure of the three, followed by RC4 and then DES, which is considered to be insecure by today's standards
+
+
+- Difference between Hashsing and Encryption.
+
+Hashing is a one-way function that generates a fixed-size string of characters or digits (known as a hash) from an input data of any size. The purpose of hashing is to provide a unique digital fingerprint of the input data that cannot be reversed or decrypted. The hash function takes an input message and produces a fixed-size message digest, which is used to verify the integrity of the original message. Hashing is commonly used for digital signatures, password storage, and file integrity checks. Examples of commonly used hash algorithms include SHA-256, MD5, and SHA-1.
+
+Encryption, on the other hand, is the process of converting plaintext into ciphertext using a mathematical algorithm and a secret key. Encryption is a reversible process, which means that the ciphertext can be decrypted back into the original plaintext using the same key. The purpose of encryption is to protect the confidentiality of the data being transmitted or stored. Encryption is commonly used for secure communication, data protection, and digital payments. Examples of commonly used encryption algorithms include AES, RSA, and Blowfish.
+
+In summary, the main difference between hashing and encryption algorithms is that hashing is a one-way process that generates a unique digital fingerprint of the input data, while encryption is a reversible process that converts plaintext into ciphertext using a secret key. Hashing is primarily used for data integrity and digital signatures, while encryption is primarily used for data confidentiality.
+
+
+
