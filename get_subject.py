@@ -11,14 +11,19 @@ links_dict = {
 
     "604": [
         "https://nig-veloper.github.io/s6p/604/1.txt", "https://nig-veloper.github.io/s6p/604/2.txt", "https://nig-veloper.github.io/s6p/604/3.txt", "https://nig-veloper.github.io/s6p/604/4.txt", "https://nig-veloper.github.io/s6p/604/5.txt", "https://nig-veloper.github.io/s6p/604/6.txt", "https://nig-veloper.github.io/s6p/604/7.txt", "https://nig-veloper.github.io/s6p/604/8.txt", "https://nig-veloper.github.io/s6p/604/9.txt"],
-    
+
     "606": [
         "https://nig-veloper.github.io/s6p/606/1.txt", "https://nig-veloper.github.io/s6p/606/2.txt", "https://nig-veloper.github.io/s6p/606/3.txt", "https://nig-veloper.github.io/s6p/606/4.txt", "https://nig-veloper.github.io/s6p/606/5.txt", "https://nig-veloper.github.io/s6p/606/6.txt", "https://nig-veloper.github.io/s6p/606/7.txt", "https://nig-veloper.github.io/s6p/606/8.txt", "https://nig-veloper.github.io/s6p/606/9.txt", "https://nig-veloper.github.io/s6p/606/mongo.txt", "https://nig-veloper.github.io/s6p/606/10.txt"
     ],
 
-    "607":[
-        "https://nig-veloper.github.io/s6p/607/1.txt", "https://nig-veloper.github.io/s6p/607/2.txt", "https://nig-veloper.github.io/s6p/607/3.txt", "https://nig-veloper.github.io/s6p/607/4.txt", "https://nig-veloper.github.io/s6p/607/5.txt", "https://nig-veloper.github.io/s6p/607/7.txt", "https://nig-veloper.github.io/s6p/607/8.txt", "https://nig-veloper.github.io/s6p/607/9.txt","https://nig-veloper.github.io/s6p/607/10.txt"
+    "607": [
+        "https://nig-veloper.github.io/s6p/607/1.txt", "https://nig-veloper.github.io/s6p/607/2.txt", "https://nig-veloper.github.io/s6p/607/3.txt", "https://nig-veloper.github.io/s6p/607/4.txt", "https://nig-veloper.github.io/s6p/607/5.txt", "https://nig-veloper.github.io/s6p/607/7.txt", "https://nig-veloper.github.io/s6p/607/8.txt", "https://nig-veloper.github.io/s6p/607/9.txt", "https://nig-veloper.github.io/s6p/607/10.txt"
 
+    ],
+    "IR": [
+        "https://nig-veloper.github.io/s6p/IR/editdistance.txt",
+        "https://nig-veloper.github.io/s6p/IR/pagerank.txt",
+        "https://nig-veloper.github.io/s6p/IR/stopwords.txt"
     ]
 }
 
@@ -46,4 +51,5 @@ for link in links:
     file_name = os.path.basename(link)
     file_path = os.path.join(dir_name, file_name)
     subprocess.call(['curl', '-s', '-o', file_path, link])
-    print("Downloaded {link} to {file_path}".format(link=link, file_path=file_path))
+    print("Downloaded {link} to {file_path}".format(
+        link=link, file_path=file_path))
