@@ -1,0 +1,25 @@
+#Aim: Reconnaissance 
+
+#Theory:
+Reconnaissance (or recon) refers to the process of gathering information about a target or a potential target, usually in the context of security or military operations. In the digital world, reconnaissance typically refers to the pre-attack phase, during which attackers gather information about a target's infrastructure, network, and vulnerabilities to identify potential weaknesses that can be exploited in an attack.
+
+The reconnaissance process can involve various techniques and methods, including:
+
+- Scanning: Scanning the target network or infrastructure to identify devices, ports, and services that are exposed to the internet.
+
+- Enumeration: Identifying users, hosts, shares, and other resources available on the target network.
+
+- Social engineering: Gathering information by tricking or manipulating individuals into revealing sensitive information.
+
+- Open-source intelligence (OSINT): Using publicly available information such as social media, job postings, and news articles to gather information about the target.
+
+The goal of reconnaissance is to collect as much information as possible about the target to identify potential weaknesses that can be exploited in an attack. This information can then be used to plan and launch an attack that is more likely to succeed. As such, reconnaissance is an essential part of the attack lifecycle, and defenders must be aware of the techniques used by attackers to gather information and take measures to protect their networks and infrastructure.
+
+#Steps:
+1) Open https://who.is/
+
+2) Enter a domain name to look up (eg: https://github.com )
+
+3) View Records (done.)
+
+

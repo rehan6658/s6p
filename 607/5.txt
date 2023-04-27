@@ -1,0 +1,48 @@
+#Aim : Use NMap scanner to perform port scanning of various forms – ACK, SYN, FIN, NULL, Xmas.
+
+#Theory :
+
+Nmap is a popular open-source tool used for network exploration and security auditing. It can perform various types of port scanning, including ACK, SYN, FIN, NULL, and Xmas scans, which we will explain below:
+
+- ACK scan: An ACK scan is used to determine if a port is filtered, which means that the port is accessible but traffic is being blocked. With an ACK scan, Nmap sends an ACK packet to the target port and examines the response. If the port is filtered, Nmap will receive a RST packet in response.
+
+- SYN scan: A SYN scan is one of the most common types of port scans used by Nmap. With a SYN scan, Nmap sends a SYN packet to the target port and waits for a response. If the port is open, the target will respond with a SYN/ACK packet. If the port is closed, the target will respond with a RST packet.
+
+- FIN scan: A FIN scan is used to identify open ports on a target system. With a FIN scan, Nmap sends a FIN packet to the target port and waits for a response. If the port is open, the target will not respond to the FIN packet. If the port is closed, the target will respond with a RST packet.
+
+- NULL scan: A NULL scan is used to identify open ports on a target system. With a NULL scan, Nmap sends a packet with no flags set to the target port and waits for a response. If the port is open, the target will not respond to the packet. If the port is closed, the target will respond with a RST packet.
+
+- Xmas scan: An Xmas scan is used to identify open ports on a target system. With an Xmas scan, Nmap sends a packet with the FIN, PSH, and URG flags set to the target port and waits for a response. If the port is open, the target will not respond to the packet. If the port is closed, the target will respond with a RST packet.
+
+In summary, Nmap's port scanning techniques are used to identify open ports on a target system, which can help in identifying potential vulnerabilities that can be exploited. Each type of port scan has its own advantages and disadvantages, and some may be more effective in certain situations than others. It's important to use these techniques responsibly and with proper authorization to avoid any legal or ethical issues.
+
+
+- ACK scan: ACK stands for "Acknowledgment"
+
+- SYN scan: SYN stands for "Synchronize"
+
+- FIN scan: FIN stands for "Finish"
+
+- NULL scan: NULL means that no TCP flags are set in the packet
+
+- Xmas scan: Xmas refers to the set of flags that are set in the packet: FIN, PSH, and URG (which light up the packet like a Christmas tree)
+
+
+# Commands:
+
+1) ACK scan 
+   nmap -sA www.github.com
+
+2) SYN scan 
+   nmap -sS www.github.com
+
+3) FIN scan 
+   nmap -sF www.github.com
+
+4) NULL scan
+   nmap -sN www.github.com
+
+5) Xmas scan 
+   nmap -sX <target IP>
+
+

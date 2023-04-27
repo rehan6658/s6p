@@ -1,0 +1,136 @@
+#Aim : Run and analyze output of Linux commands 
+i) ifconfig/ipconfig 
+ii) ping
+iii) netstat 
+
+#Steps 
+i) Open a linux terminal and run the commands 
+
+a) ifconfig 
+
+output :
+vagrant@vagrant-ubuntu-trusty-64:~$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 08:00:27:5f:bb:e6
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe5f:bbe6/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3573 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2015 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:347675 (347.6 KB)  TX bytes:224297 (224.2 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+
+b) ping 
+
+output:
+ ping www.google.com
+PING www.google.com (142.250.192.4) 56(84) bytes of data.
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=1 ttl=118 time=4.30 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=2 ttl=118 time=3.53 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=3 ttl=118 time=4.24 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=4 ttl=118 time=4.66 ms
+^C
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3008ms
+rtt min/avg/max/mdev = 3.537/4.186/4.663/0.412 ms
+
+c) netstat 
+
+output:
+vagrant@vagrant-ubuntu-trusty-64:~$ netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 vagrant-ubuntu-trus:ssh 10.0.2.2:3539           ESTABLISHED
+tcp        0      0 vagrant-ubuntu-trus:ssh 10.0.2.2:3325           ESTABLISHED
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  7      [ ]         DGRAM                    8955     /dev/log
+unix  3      [ ]         STREAM     CONNECTED     13453
+unix  3      [ ]         STREAM     CONNECTED     9095
+unix  2      [ ]         DGRAM                    9174
+unix  2      [ ]         DGRAM                    9012
+unix  3      [ ]         STREAM     CONNECTED     12977
+unix  3      [ ]         STREAM     CONNECTED     8940
+unix  3      [ ]         DGRAM                    7392
+unix  3      [ ]         STREAM     CONNECTED     8554     @/com/ubuntu/upstart
+unix  2      [ ]         DGRAM                    12641
+unix  2      [ ]         DGRAM                    13237
+unix  3      [ ]         STREAM     CONNECTED     9031
+unix  3      [ ]         STREAM     CONNECTED     13460
+unix  3      [ ]         STREAM     CONNECTED     7868     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     12978    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8944
+unix  3      [ ]         STREAM     CONNECTED     7324     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     8941
+unix  3      [ ]         DGRAM                    7393
+unix  3      [ ]         STREAM     CONNECTED     13461    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8532
+unix  3      [ ]         STREAM     CONNECTED     9034     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9439
+unix  3      [ ]         STREAM     CONNECTED     7865
+unix  3      [ ]         STREAM     CONNECTED     8945     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7317
+unix  2      [ ]         DGRAM                    10199
+unix  3      [ ]         STREAM     CONNECTED     9096
+unix  3      [ ]         STREAM     CONNECTED     13452
+unix  3      [ ]         STREAM     CONNECTED     12969
+unix  3      [ ]         STREAM     CONNECTED     12970
+unix  3      [ ]         STREAM     CONNECTED     9440     /var/run/dbus/system_bus_socket
+
+
+#Theory :
+
+i) ifconfig/ipconfig 
+> ifconfig is a command-line utility that is used to configure and view network interfaces on a Unix-based operating system such as Linux, macOS, or FreeBSD.
+
+The ifconfig command can perform the following tasks:
+
+Displaying network interface configuration: Running the ifconfig command without any arguments displays the configuration details of all active network interfaces on the system, including IP addresses, netmasks, hardware addresses (MAC addresses), and other settings.
+
+Configuring network interface settings: You can use the ifconfig command to configure various network interface settings, such as setting the IP address, netmask, and other network parameters.
+
+Activating or deactivating network interfaces: You can use the ifconfig command to activate or deactivate network interfaces. For example, you can use the command to bring a network interface up or down.
+
+Setting hardware addresses: You can use the ifconfig command to set or change the hardware address (MAC address) of a network interface.
+
+Troubleshooting network issues: You can use the ifconfig command to diagnose and troubleshoot network issues, such as verifying network interface configuration or checking for errors or collisions on the network.
+
+
+ii) ping 
+> The ping command in Linux is a utility used to test the connectivity between two network devices over an IP network. The ping command works by sending ICMP (Internet Control Message Protocol) echo request packets to the destination host and waiting for ICMP echo reply packets in response. Here's how the ping command works in Linux:
+
+Open a terminal window: To use the ping command in Linux, you need to open a terminal window or console.
+
+Type the ping command: To use the ping command, type "ping" followed by the IP address or hostname of the destination device you want to test. For example, "ping google.com" or "ping 8.8.8.8".
+
+Press Enter: Once you've typed the ping command, press Enter to execute the command.
+
+Observe the output: The ping command will send ICMP echo request packets to the destination device and display the results in the terminal window. The output will include statistics such as the round-trip time for each packet, the number of packets sent and received, and any errors or timeouts that occur.
+
+Interrupt the command: To stop the ping command, you can press Ctrl+C or use the interrupt signal (SIGINT) to terminate the command.
+
+iii) netstat 
+> The netstat command in Linux is a utility used to display active network connections, routing tables, and network statistics. Here's how the netstat command works in Linux:
+
+Open a terminal window: To use the netstat command in Linux, you need to open a terminal window or console.
+
+Type the netstat command: To use the netstat command, type "netstat" followed by any options or arguments you want to use. For example, "netstat -a" to display all active network connections.
+
+Press Enter: Once you've typed the netstat command, press Enter to execute the command.
+
+Observe the output: The netstat command will display information about active network connections, including the local and remote IP addresses, the protocol used, the state of the connection, and the port number. It can also display information about routing tables, network interfaces, and network statistics.
+
+Interrupt the command: To stop the netstat command, you can press Ctrl+C or use the interrupt signal (SIGINT) to terminate the command.
+
+The netstat command is useful for diagnosing network issues and monitoring network activity. By displaying active network connections and other network information, the netstat command can help you identify which applications are using the network and which ports are being used. It can also be used to troubleshoot network connectivity issues and to verify that network services are running properly.
+
+ 

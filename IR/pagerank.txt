@@ -1,0 +1,19 @@
+import numpy as np
+
+def pagerank(M, num_iterations=100, d=0.85):
+    # Set up initial probabilities
+    N = M.shape[1]
+    v = np.random.rand(N, 1)
+    v = v / np.linalg.norm(v, 1)
+
+    # Iterate with PageRank equation
+    for i in range(num_iterations):
+        v = d * np.matmul(M, v) + (1 - d) / N
+
+    return v
+
+# Example usage
+M = np.array([[0, 0, 1],
+              [1, 0, 0],
+              [0, 1, 0]])
+pagerank(M)

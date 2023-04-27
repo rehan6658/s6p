@@ -1,0 +1,35 @@
+#Aim:Simulate persistent cross-site scripting attack. (DVWA)
+
+#Steps:
+i) Setup (DVWA)
+- use xampp server 
+- after setup go to https://localhost:8080/DVWA/setup.php
+- create database 
+- then login via /login.php
+
+ii) Set security level to low
+
+iii) Find (xxs) Stored 
+- Fill the form with javascript code in message box.
+- (eg : <script> alert("hello mf, you are hacked") </script> )
+
+iv) Done
+
+
+#Theory: 
+Cross-site scripting (XSS) is a type of security vulnerability that occurs when a web application fails to properly sanitize user inputs, allowing an attacker to inject malicious code into the web page that is viewed by other users.
+
+When a user visits a web page that contains an XSS vulnerability, the malicious code injected by the attacker can be executed in the user's browser, potentially allowing the attacker to steal sensitive information, such as passwords, session tokens, or credit card numbers. The attacker can also use the vulnerability to perform actions on behalf of the user, such as sending unauthorized requests or modifying the user's data.
+
+There are three main types of XSS attacks:
+
+Stored XSS: In this type of attack, the malicious code is stored on the web server, usually in a database, and is then served to all users who visit the affected page.
+
+Reflected XSS: In this type of attack, the malicious code is included in a URL parameter or other input that is echoed back to the user in the server's response.
+
+DOM-based XSS: This type of attack occurs when the vulnerability is in the client-side JavaScript code, rather than the server-side code, and allows the attacker to modify the DOM (Document Object Model) directly.
+
+To prevent XSS attacks, web developers should sanitize user inputs, validate input data, and use secure coding practices, such as encoding output and using content security policies (CSPs) to restrict the sources of executable scripts on a web page. Users can also protect themselves by using web browsers with built-in XSS protection features and by being cautious when clicking on links or entering sensitive information on websites.
+
+
+

